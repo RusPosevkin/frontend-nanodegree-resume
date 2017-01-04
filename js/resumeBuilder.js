@@ -124,5 +124,46 @@ var education = {
   }
 }
 
+var work = {
+  jobs: [
+    {
+      employer: 'LoyaltyPlant',
+      title: 'Frontend Engineer',
+      location: 'Saint Petersburg, Russia',
+      dates: 'August 2016 - Present',
+      description: 'CRM devlopment using Ember.js'
+    },
+    {
+      employer: 'ITMO University',
+      title: 'Research Engineer',
+      location: 'Saint Petersburg, Russia',
+      dates: 'April 2013 - Present',
+      description: 'Аreas of expertise: computational linguistics, natural language processing, natural language user interface, sentiment analysis'
+    },
+    {
+      employer: 'Raidix',
+      title: 'Frontend Engineer',
+      location: 'Saint Petersburg, Russia',
+      dates: 'February 2013 - September 2015',
+      description: 'Development of user interface for the main software product: HTML/JS SPA powered by Backbone/Marionette framework.'
+    }
+  ],
+  display: function () {
+    work.jobs.forEach(function (job) {
+      var workLayout = [];
+
+      workLayout.push(replaceData(HTMLworkEmployer, job.employer));
+      workLayout.push(replaceData(HTMLworkTitle, job.title));
+      workLayout.push(replaceData(HTMLworkDates, job.dates));
+      workLayout.push(replaceData(HTMLworkLocation, job.location));
+      workLayout.push(replaceData(HTMLworkDescription, job.description));
+
+      $('#workExperience').append(HTMLworkStart);
+      $('.work-entry').last().append(workLayout.join(''));
+    });
+  }
+};
+
 bio.display();
 education.display();
+work.display();
