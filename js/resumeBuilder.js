@@ -4,7 +4,7 @@ var replaceData = function (template, data) {
   if (dataItems.length === 1) {
     return template.replace(dataItems[0], data);
   } else {
-    return dataItems.reduce(function(result, item) {
+    return dataItems.reduce(function (result, item) {
       return result.replace(item, data[item.slice(1, -1)]);
     }, template);
   }
@@ -122,7 +122,7 @@ var education = {
       $('.education-entry').last().append(courseLayout.join(''));
     });
   }
-}
+};
 
 var work = {
   jobs: [
@@ -164,6 +164,45 @@ var work = {
   }
 };
 
+var projects = {
+  projects: [
+    {
+      title: 'Film Search',
+      dates: 'August 2016',
+      description: 'Movies searching service. It uses the themoviedb.org API.',
+      images: ['https://raw.githubusercontent.com/RusPosevkin/udacity-frontend/master/p3/img/movie.jpg']
+    },
+    {
+      title: 'Marionette Modal',
+      dates: 'October 2014 - September 2015',
+      description: 'Marionette.js modals',
+      images: ['https://raw.githubusercontent.com/RusPosevkin/udacity-frontend/master/p3/img/marionette.png']
+    },
+    {
+      title: 'Moodle Legibility',
+      dates: 'September 2011 - June 2012',
+      description: 'Module for LMS Moodle that provide capability of get Flesch and Flesch–Kincaid readability indexes, list of keywords and key sentences.',
+      images: ['https://raw.githubusercontent.com/RusPosevkin/udacity-frontend/master/p3/img/moodle.jpg']
+    }
+  ],
+  display: function () {
+    projects.projects.forEach(function (project) {
+      var projectLayout = [];
+
+      projectLayout.push(replaceData(HTMLprojectTitle, project.title));
+      projectLayout.push(replaceData(HTMLprojectDates, project.dates));
+      projectLayout.push(replaceData(HTMLprojectDescription, project.description));
+      project.images.forEach(function (image) {
+        projectLayout.push(replaceData(HTMLprojectImage, image));
+      });
+
+      $('#projects').append(HTMLprojectStart);
+      $('.project-entry').last().append(projectLayout.join(''));
+    });
+  }
+};
+
 bio.display();
 education.display();
 work.display();
+projects.display();
