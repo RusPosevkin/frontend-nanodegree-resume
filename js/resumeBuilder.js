@@ -67,7 +67,7 @@ var education = {
       location: 'Saint Petersburg, Russia',
       degree: 'PhD',
       majors: ['Software Engineering'],
-      dates: '2014–2018',
+      dates: '2014-2018',
       url: 'http://www.ifmo.ru/',
     },
     {
@@ -75,7 +75,7 @@ var education = {
       location: 'Saint Petersburg, Russia',
       degree: 'MSc',
       majors: ['Software Engineering'],
-      dates: '2012–2014',
+      dates: '2012-2014',
       url: 'http://www.ifmo.ru/',
     },
     {
@@ -83,7 +83,7 @@ var education = {
       location: 'Volgograd, Russia',
       degree: 'BSc',
       majors: ['Software Engineering'],
-      dates: '2008–2012',
+      dates: '2008-2012',
       url: 'http://www.volpi.ru/',
     }
   ],
@@ -136,7 +136,7 @@ var work = {
       title: 'Research Engineer',
       location: 'Saint Petersburg, Russia',
       dates: 'April 2013 - Present',
-      description: 'Аreas of expertise: computational linguistics, natural language processing, natural language user interface, sentiment analysis'
+      description: 'Areas of expertise: computational linguistics, natural language processing, natural language user interface, sentiment analysis'
     },
     {
       employer: 'Raidix',
@@ -178,7 +178,7 @@ var projects = {
     {
       title: 'Moodle Legibility',
       dates: 'September 2011 - June 2012',
-      description: 'Module for LMS Moodle that provide capability of get Flesch and Flesch–Kincaid readability indexes, list of keywords and key sentences.',
+      description: 'Module for LMS Moodle that provide capability of get Flesch and Flesch-Kincaid readability indexes',
       images: ['https://raw.githubusercontent.com/RusPosevkin/udacity-frontend/master/p3/img/moodle.jpg']
     }
   ],
