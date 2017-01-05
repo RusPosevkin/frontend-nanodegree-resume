@@ -1,10 +1,10 @@
-var replaceData = function (template, data) {
+var replaceData = function(template, data) {
   var dataItems = template.match(/%\w+%/g);
 
   if (dataItems.length === 1) {
     return template.replace(dataItems[0], data);
   } else {
-    return dataItems.reduce(function (result, item) {
+    return dataItems.reduce(function(result, item) {
       return result.replace(item, data[item.slice(1, -1)]);
     }, template);
   }
@@ -22,7 +22,7 @@ var bio = {
   welcomeMessage: 'Welcome message',
   skills: ['HTML', 'CSS', 'JavaScript'],
   biopic: 'https://avatars1.githubusercontent.com/u/1483747?v=3&s=460',
-  display: function () {
+  display: function() {
     var headerPrependLayout = [];
 
     headerPrependLayout.push(replaceData(HTMLheaderName, bio.name));
@@ -32,11 +32,13 @@ var bio = {
 
     var contactLayout = [];
 
-    for (datum in bio.contacts) {
-      contactLayout.push(replaceData(HTMLcontactGeneric, {
-        contact: datum,
-        data: bio.contacts[datum]
-      }));
+    for (var datum in bio.contacts) {
+      if (bio.contacts.hasOwnProperty(datum)) {
+        contactLayout.push(replaceData(HTMLcontactGeneric, {
+          contact: datum,
+          data: bio.contacts[datum]
+        }));
+      }
     }
 
     var headerAppendLayout = [];
@@ -51,7 +53,7 @@ var bio = {
 
     var skillsLayout = [];
 
-    bio.skills.forEach(function (skill) {
+    bio.skills.forEach(function(skill) {
       skillsLayout.push(replaceData(HTMLskills, skill));
     });
 
@@ -60,8 +62,7 @@ var bio = {
 };
 
 var education = {
-  schools: [
-    {
+  schools: [{
       name: 'ITMO University',
       location: 'Saint Petersburg, Russia',
       degree: 'PhD',
@@ -86,16 +87,14 @@ var education = {
       url: 'http://www.volpi.ru/',
     }
   ],
-  onlineCourses: [
-    {
-      title: 'MongoDB University',
-      school: 'MongoDB for Node.js Developers',
-      dates: 'May 2016',
-      url: 'https://university.mongodb.com/'
-    }
-  ],
-  display: function () {
-    education.schools.forEach(function (school) {
+  onlineCourses: [{
+    title: 'MongoDB University',
+    school: 'MongoDB for Node.js Developers',
+    dates: 'May 2016',
+    url: 'https://university.mongodb.com/'
+  }],
+  display: function() {
+    education.schools.forEach(function(school) {
       var schoolsLayout = [];
 
       schoolsLayout.push(replaceData(HTMLschoolName, school.name));
@@ -110,7 +109,7 @@ var education = {
 
     $('#education').append(HTMLonlineClasses);
 
-    education.onlineCourses.forEach(function (course) {
+    education.onlineCourses.forEach(function(course) {
       var courseLayout = [];
 
       courseLayout.push(replaceData(HTMLonlineTitle, course.title));
@@ -125,8 +124,7 @@ var education = {
 };
 
 var work = {
-  jobs: [
-    {
+  jobs: [{
       employer: 'LoyaltyPlant',
       title: 'Frontend Engineer',
       location: 'Saint Petersburg, Russia',
@@ -148,8 +146,8 @@ var work = {
       description: 'Development of user interface for the main software product: HTML/JS SPA powered by Backbone/Marionette framework.'
     }
   ],
-  display: function () {
-    work.jobs.forEach(function (job) {
+  display: function() {
+    work.jobs.forEach(function(job) {
       var workLayout = [];
 
       workLayout.push(replaceData(HTMLworkEmployer, job.employer));
@@ -165,8 +163,7 @@ var work = {
 };
 
 var projects = {
-  projects: [
-    {
+  projects: [{
       title: 'Film Search',
       dates: 'August 2016',
       description: 'Movies searching service. It uses the themoviedb.org API.',
@@ -185,14 +182,14 @@ var projects = {
       images: ['https://raw.githubusercontent.com/RusPosevkin/udacity-frontend/master/p3/img/moodle.jpg']
     }
   ],
-  display: function () {
-    projects.projects.forEach(function (project) {
+  display: function() {
+    projects.projects.forEach(function(project) {
       var projectLayout = [];
 
       projectLayout.push(replaceData(HTMLprojectTitle, project.title));
       projectLayout.push(replaceData(HTMLprojectDates, project.dates));
       projectLayout.push(replaceData(HTMLprojectDescription, project.description));
-      project.images.forEach(function (image) {
+      project.images.forEach(function(image) {
         projectLayout.push(replaceData(HTMLprojectImage, image));
       });
 
