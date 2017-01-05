@@ -43,7 +43,7 @@ var bio = {
 
     var headerAppendLayout = [];
 
-    $('#topContacts').append(contactLayout.join(''));
+    $('#topContacts, #footerContacts').append(contactLayout.join(''));
 
     headerAppendLayout.push(replaceData(HTMLbioPic, bio.biopic));
     headerAppendLayout.push(replaceData(HTMLwelcomeMsg, bio.welcomeMessage));
