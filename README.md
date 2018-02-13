@@ -13,6 +13,10 @@ Review the Online Resume [Project Rubric](https://review.udacity.com/?_ga=1.1892
 8. Check your work against the [Project Rubric](https://review.udacity.com/?_ga=1.189245867.12280332.1465333852#!/projects/2962818615/rubric).
 9. When you are satisfied with your project, submit it according to the Submission Instructions below.
 
+
+## Demo
+Demo site: https://rusposevkin.github.io/frontend-nanodegree-resume/
+
 ### By the end:
 Your resume will look something like this
 ![](http://i.imgur.com/pWU1Xbl.png)
